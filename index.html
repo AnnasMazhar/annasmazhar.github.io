@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annas Mazhar — data engineer, AWS data lakes, verification-first tooling</title>
+<meta name="description" content="Data engineer building AWS data lakes (Glue, Athena, S3) and open-source tools that prove their claims: factor research, agent replay testing, SQL pipeline testing.">
+<meta property="og:title" content="Annas Mazhar — data engineer">
+<meta property="og:description" content="AWS data lake engineering and verification-first open-source tooling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://annasmazhar.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<style>
+  :root{
+    --bg:#0a0c10; --panel:#11151c; --line:#1f2632; --text:#e6edf3;
+    --muted:#8b98a8; --accent:#7ee787; --accent-dim:#2ea04326; --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline; text-underline-offset:3px}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px}
+  header{padding:88px 0 56px; border-bottom:1px solid var(--line);
+    background:radial-gradient(1100px 380px at 50% -160px,#7ee78714,transparent 70%)}
+  h1{font-size:clamp(2rem,5vw,3rem); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em}
+  .lede{font-size:clamp(1.05rem,2.2vw,1.3rem); color:var(--muted); max-width:56ch; margin:0 0 26px}
+  .lede strong{color:var(--text); font-weight:600}
+  .tag{font:12px/1 var(--mono); color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-bottom:20px}
+  .meta{display:flex; flex-wrap:wrap; gap:18px; font:13px/1.4 var(--mono); color:var(--muted)}
+  .meta a{color:var(--muted)} .meta a:hover{color:var(--accent)}
+  section{padding:60px 0; border-bottom:1px solid var(--line)}
+  h2{font-size:.8rem; font-family:var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin:0 0 26px; font-weight:600}
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:8px}
+  .stat{background:var(--panel); padding:20px}
+  .stat b{display:block; font-size:1.9rem; line-height:1.1; letter-spacing:-.02em}
+  .stat span{font:12px/1.5 var(--mono); color:var(--muted)}
+  .cards{display:grid; gap:16px}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px 22px 18px; transition:border-color .15s, transform .15s}
+  .card:hover{border-color:#2f3a4a; transform:translateY(-2px)}
+  .card h3{margin:0 0 6px; font-size:1.08rem; letter-spacing:-.01em}
+  .card h3 a{color:var(--text)}
+  .card h3 a:hover{color:var(--accent); text-decoration:none}
+  .card p{margin:0 0 14px; color:#b9c4d0}
+  .proof{font:12.5px/1.5 var(--mono); color:var(--muted); display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  .proof .pill{background:var(--accent-dim); color:var(--accent); border:1px solid #2ea04340; padding:3px 9px; border-radius:999px; font-size:11.5px}
+  ul.prs{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+  ul.prs li{display:flex; gap:12px; align-items:baseline; padding:10px 0; border-bottom:1px dashed var(--line)}
+  ul.prs li:last-child{border-bottom:0}
+  ul.prs .repo{font:12px/1.4 var(--mono); color:var(--muted); min-width:210px}
+  ul.prs .stars{font:12px/1.4 var(--mono); color:#d2a24c; min-width:56px; text-align:right}
+  footer{padding:48px 0 72px; color:var(--muted); font-size:14px}
+  footer .row{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
+  @media (max-width:620px){
+    header{padding:64px 0 40px}
+    ul.prs li{flex-direction:column; gap:4px}
+    ul.prs .repo, ul.prs .stars{min-width:0; text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="tag">Bournemouth, UK · Data engineer</div>
+    <h1>Annas Mazhar</h1>
+    <p class="lede">I build <strong>AWS data lakes</strong> — Glue, Athena, S3 — and, outside work hours, <strong>tools that prove their claims</strong>. Every repo ships its tests, its evidence file, and the failure modes it does not hide.</p>
+    <div class="meta">
+      <a href="https://github.com/AnnasMazhar">GitHub</a>
+      <a href="https://github.com/AnnasMazhar?tab=repositories">Repositories</a>
+      <a href="#upstream">Upstream work</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The short version</h2>
+    <div class="stats">
+      <div class="stat"><b>17</b><span>merged PRs<br>in other people's repos</span></div>
+      <div class="stat"><b>8</b><span>of those merged<br>in repos over 6k stars</span></div>
+      <div class="stat"><b>5</b><span>open-source tools<br>published and tested</span></div>
+      <div class="stat"><b>0</b><span>factors promoted<br>on real data, honestly</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Tools</h2>
+    <div class="cards">
+
+      <article class="card">
+        <h3><a href="https://github.com/AnnasMazhar/factorproof">factorproof</a></h3>
+        <p>Factor research with the controls quant work usually skips: purged walk-forward CV, Newey-West HAC t-stats, Benjamini-Hochberg FDR, and a promotion gate that refuses noise.</p>
+        <div class="proof">
+          <span class="pill">14 coins · 21,332 daily bars</span>
+          <span class="pill">all 14 factors rejected</span>
+          <span>201 tests</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://github.com/AnnasMazhar/replayproof">replayproof</a></h3>
+        <p>Offline regression testing for LLM agents. Record a run once, replay it forever with zero API keys, assert tool-call contracts, and diff behaviour when you swap the model.</p>
+        <div class="proof">
+          <span class="pill">zero API keys</span>
+          <span class="pill">token-cost gate</span>
+          <span>CI on 3.11 and 3.12</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://github.com/AnnasMazhar/fitsproof">fitsproof</a></h3>
+        <p>A calibrated cost model and an enforced memory budget in front of a from-scratch NumPy inference engine with KV cache and quantisation. When the model does not fit, it says so loudly.</p>
+        <div class="proof">
+          <span class="pill">no silent OOM</span>
+          <span>NumPy engine</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://github.com/AnnasMazhar/pytest-duckdb">pytest-duckdb</a></h3>
+        <p>Pytest plugin for SQL pipeline testing with DuckDB: load fixtures, run queries, snapshot results. Listed in the official pytest plugin index and used in third-party suites.</p>
+        <div class="proof">
+          <span class="pill">PyPI</span>
+          <span class="pill">official plugin list</span>
+          <span>Python 3.9 to 3.13</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://github.com/AnnasMazhar/pyspark_mcp">pyspark-mcp</a></h3>
+        <p>An MCP server for data engineers: SQL-to-PySpark transpilation, AWS Glue job generation, and Spark optimisation, usable from any MCP client.</p>
+        <div class="proof">
+          <span class="pill">MCP registry</span>
+          <span>Glue · Spark</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="upstream">
+  <div class="wrap">
+    <h2>Merged upstream</h2>
+    <ul class="prs">
+      <li><span class="repo">google/zx #1464</span><span>skip <code>node:</code> protocol imports in <code>--install</code></span><span class="stars">46k★</span></li>
+      <li><span class="repo">teng-lin/notebooklm-py #2262</span><span>bulk <code>source_delete</code> for MCP</span><span class="stars">20k★</span></li>
+      <li><span class="repo">aws/aws-cdk #37815</span><span>restore <code>notifyDelayAfter</code> for PySpark and Scala Glue jobs</span><span class="stars">13k★</span></li>
+      <li><span class="repo">strands-agents/harness-sdk</span><span>#4067 dropped content blocks · #4059 offloader · #3955 usage chunk</span><span class="stars">9.2k★</span></li>
+      <li><span class="repo">dlt-hub/dlt</span><span>#4283 table-prefix layout · #3928 decimal coercion</span><span class="stars">6.1k★</span></li>
+      <li><span class="repo">Cygnux-Labs/Tracekit #474</span><span>warn when a hand-wired framework is not the tested version</span><span class="stars">605★</span></li>
+      <li><span class="repo">exmergo/dex #775</span><span>validate semantic YAML against MetricFlow schemas</span><span class="stars">117★</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span>Annas Mazhar · Bournemouth, UK</span>
+    <span><a href="https://github.com/AnnasMazhar">github.com/AnnasMazhar</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
